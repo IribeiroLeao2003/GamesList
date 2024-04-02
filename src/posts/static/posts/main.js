@@ -17,8 +17,6 @@ console.log(url)
 
 
 
-
-
 const getCookie = (name) => {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -37,6 +35,14 @@ const getCookie = (name) => {
 
 
 const csrftoken = getCookie('csrftoken')
+const deleted = localStorage.getItem('title')
+if (deleted) { 
+    console.log(deleted)
+    handleAlerts('danger', `deleted "${deleted}"`)
+    localStorage.clear()
+} else { 
+    console.log("it's empty or not set")
+}
 
 const likeUnlikePosts = () => { 
     const likeUnlikeForms = [...document.getElementsByClassName('like-unlike-forms')]
@@ -173,6 +179,7 @@ postForm.addEventListener('submit', e=>{
         }
     })
 })
+
 
 
 getData()
