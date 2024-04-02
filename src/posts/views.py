@@ -89,5 +89,3 @@ def like_unlike_post(request):
         return JsonResponse({'liked': liked, 'count': obj.like_count})
 
 
-def hello_world_view(request):
-    return JsonResponse({'text': 'hello world x 2'})
