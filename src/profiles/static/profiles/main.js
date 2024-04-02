@@ -19,10 +19,9 @@ profileForm.addEventListener('submit', e => {
         enctype: 'multipart/form-data',
         data: formData,
         success: function(response){ 
-            console.log(response.avatar)
-            console.log(response.user)
+            console.log(response)
             avatarBox.innerHTML = `
-            <img src="${response.avatar}" class="rounded" height="200px" width="auto" alt="${response.user}/>
+            <img src="${response.avatar}" class="rounded" height="200px" width="auto" alt="${response.user}">
             `
             bioInput.value = response.bio
             handleAlerts('success', 'your profile was updated succefully!!')
