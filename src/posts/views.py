@@ -3,8 +3,12 @@ from .models import Photo, Post
 from django.http import HttpResponse, JsonResponse
 from .forms import PostForm
 from profiles.models import Profile
+from .utils import action_permission
+from django.contrib.auth.decorators import  login_required
 # Create your views here.
 
+
+@login_required
 def post_list_and_create(request):
     form = PostForm(request.POST or None)
    # qs = Post.objects.all()
@@ -110,10 +114,11 @@ def image_upload_view(request):
         Photo.objects.create(image=img, post=post)
     return HttpResponse()
 
-
+@action_permission
 def delete_post(request, pk):
     obj = Post.objects.get(pk=pk)
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         obj.delete()
-    return JsonResponse({})
+        return JsonResponse({'msg' : 'post deletion error'})
+    return JsonResponse({'msg' : 'access denied - ajax only'})
 
