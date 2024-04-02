@@ -106,6 +106,9 @@ const getData = () => {
                                             <button class="btn btn-primary" id="like-unlike-${el.id}">${el.liked ?  `Unlike (${el.count})`: `Like (${el.count})`}</button>
                                         </form>
                                     </div>
+                                    <div class="col-8 text-end">
+                                        <p class="mb-0">Created by: <strong>${el.author}</strong></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>`
