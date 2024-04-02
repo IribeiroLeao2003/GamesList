@@ -3,6 +3,12 @@
 {% load crispy_forms_tags %}
 
 
+{% block head %}
+    <link href="{% static 'static/styles.css' %}" rel="stylesheet">
+{% endblock head %}
+
+
+
 {% block scripts %}
     <script src="{% static 'profiles/main.js' %} " defer></script>
 {% endblock scripts %}
@@ -12,6 +18,8 @@ Profiles
 {% endblock title %}
 
 {% block content %}
+
+<div class="website-text">
     <div id="alert-box"></div>
     <h3>{{ obj.user }}</h3>
     <hr>
@@ -21,7 +29,9 @@ Profiles
     <form id="profile-form"> 
         {% csrf_token %}
         {{form|crispy}}
-        <button type="submit" class="btn btn-primary mt-3">save</button>
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
     </form>
+</div>
+    
 
 {% endblock content %}

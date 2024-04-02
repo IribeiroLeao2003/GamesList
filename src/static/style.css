@@ -2,6 +2,15 @@
     display:none;
 }
 
+body {
+    background-color: navy;
+}
+
+.website-text {
+    color: white;
+    font-weight: bold;
+}
+
 .dz {
     border: dashed !important;
     border-color: #ccc !important;
