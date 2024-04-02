@@ -18,7 +18,7 @@ posts
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close add-modal-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>     
                 </div>
@@ -27,11 +27,11 @@ posts
                          {% csrf_token %}
                          {{form.as_p}}
                          <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
-                            <button type="submit" class="btn btn-success">+ Add</button>
+                            <button type="button" class="btn btn-danger add-modal-close" data-dismiss="modal">Delete</button>
+                            <button type="submit" id="add-btn" class="btn btn-success">+ Add</button>
                          </div>
                     </form>
-                    <form action="/upload" class="dropzone">
+                    <form action="upload/" id="my-dropzone" class="dropzone dz not-visible">
                         {% csrf_token %}
                         <div class="fallback">
                         <input name="file" type="file" multiple />
